@@ -1,6 +1,8 @@
 # 看看图 (PicSee) 插件
 
 ![PicSee](./assets/logo/logo_x128.png)
+![PicSee](./preview/main.png)
+![PicSee](./preview/float.png)
 
 ## 📌 插件简介
 
