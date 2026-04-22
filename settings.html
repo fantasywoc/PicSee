@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>看看图 (PicSee) - 设置</title>
+  <style>
+    /* 基础样式 */
+    :root {
+      --bg-color: #f5f5f7;
+      --text-color: #1d1d1f;
+      --card-bg: #ffffff;
+      --border-color: #d2d2d7;
+      --primary-color: #0071e3;
+      --secondary-bg: #f5f5f7;
+      --secondary-text: #86868b;
+      --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* 暗黑主题 */
+    .dark-theme {
+      --bg-color: #1c1c1e;
+      --text-color: #f5f5f7;
+      --card-bg: #2c2c2e;
+      --border-color: #48484a;
+      --primary-color: #0a84ff;
+      --secondary-bg: #2c2c2e;
+      --secondary-text: #86868b;
+      --shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    body {
+      min-width: 300px;
+      min-height: 400px;
+      max-width: 500px;
+      max-height: 600px;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      resize: both;
+      overflow: auto;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    .container {
+      padding: 20px;
+    }
+    
+    h1 {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0 0 20px 0;
+      color: var(--text-color);
+    }
+    
+    .settings-section {
+      background-color: var(--card-bg);
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0 0 15px 0;
+      color: var(--text-color);
+    }
+    
+    .setting-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .setting-row label {
+      width: 120px;
+      font-size: 14px;
+      color: var(--secondary-text);
+    }
+    
+    .setting-row input,
+    .setting-row select {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 14px;
+      background-color: var(--secondary-bg);
+      color: var(--text-color);
+      transition: all 0.2s ease;
+    }
+    
+    .setting-row input:focus,
+    .setting-row select:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      background-color: var(--card-bg);
+    }
+    
+    .setting-row input[type="range"] {
+      flex: 1;
+      padding: 0;
+      border: none;
+      background: none;
+    }
+    
+    .setting-row input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      cursor: pointer;
+    }
+    
+    .setting-row input[type="range"]::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      cursor: pointer;
+      border: none;
+    }
+    
+    .setting-row input[type="range"]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 4px;
+      background: var(--border-color);
+      border-radius: 2px;
+    }
+    
+    .setting-row input[type="range"]::-moz-range-track {
+      width: 100%;
+      height: 4px;
+      background: var(--border-color);
+      border-radius: 2px;
+    }
+    
+    .value-display {
+      margin-left: 10px;
+      font-size: 14px;
+      color: var(--text-color);
+      min-width: 40px;
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    button:hover {
+      opacity: 0.9;
+    }
+    
+    button:active {
+      transform: scale(0.98);
+    }
+    
+    .primary-btn {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .secondary-btn {
+      background-color: var(--secondary-bg);
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+    }
+    
+    .status {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 12px;
+      color: var(--secondary-text);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>设置</h1>
+    
+    <div class="settings-section">
+      <h2>界面设置</h2>
+      <div class="setting-row">
+        <label for="popupWidth">弹出宽度:</label>
+        <input type="number" id="popupWidth" min="300" max="800" placeholder="例如: 600">
+      </div>
+      <div class="setting-row">
+        <label for="popupHeight">弹出高度:</label>
+        <input type="number" id="popupHeight" min="400" max="900" placeholder="例如: 600">
+      </div>
+      <div class="setting-row">
+        <label for="blurLevel">卡片模糊程度:</label>
+        <input type="range" id="blurLevel" min="0" max="10" step="0.5" value="5">
+        <span class="value-display" id="blurLevelValue">5</span>
+      </div>
+    </div>
+    
+    <div class="settings-section">
+      <h2>主题设置</h2>
+      <div class="setting-row">
+        <label for="themeSelect">主题:</label>
+        <select id="themeSelect">
+          <option value="light">浅色主题</option>
+          <option value="dark">暗黑主题</option>
+          <option value="system">跟随系统</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="button-group">
+      <button class="primary-btn" id="saveBtn">保存设置</button>
+      <button class="secondary-btn" id="resetBtn">恢复默认</button>
+    </div>
+    
+    <div class="status" id="status"></div>
+  </div>
+  
+  <script src="settings.js"></script>
+</body>
+</html>

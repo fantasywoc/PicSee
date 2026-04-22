@@ -1,0 +1,51 @@
+{
+  "name": "图看PicSee",
+  "version": "2.0.0",
+  "description": "一个功能强大的图片批量下载和预览工具",
+  "short_name": "PicSee",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "assets/logo/logo_x16.png",
+      "24": "assets/logo/logo_x32.png",
+      "32": "assets/logo/logo_x32.png",
+      "48": "assets/logo/logo_x48.png"
+    }
+  },
+  "icons": {
+    "16": "assets/logo/logo_x16.png",
+    "32": "assets/logo/logo_x32.png",
+    "48": "assets/logo/logo_x48.png",
+    "128": "assets/logo/logo_x128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": [
+    "downloads",
+    "downloads.shelf",
+    "downloads.open",
+    "downloads.filename",
+    "contextMenus",
+    "tabs",
+    "scripting",
+    "storage",
+    "unlimitedStorage",
+    "offscreen"
+  ],
+  "host_permissions": ["*://*/*"],
+  "web_accessible_resources": [
+    {
+      "resources": ["imagepage.html", "libs/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
