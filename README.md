@@ -1,5 +1,7 @@
 # 看看图 (PicSee) 插件
 
+![PicSee](./assets/logo/logo_x128.png)
+
 ## 📌 插件简介
 
 **图看 (PicSee)** 是一款功能强大的 Chrome 浏览器图片下载插件，帮助用户快速检测、预览和下载网页中的图片。
